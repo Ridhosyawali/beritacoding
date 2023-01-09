@@ -6,7 +6,11 @@ class Feedback extends CI_Controller
 	{
 		$this->load->model('feedback_model');
 		$data['feedbacks'] = $this->feedback_model->get();
-		$this->load->view('admin/feedback_list', $data);
+		if(count($data['feedbacks']) <= 0){
+			$this->load->view('admin/feedback_empty');
+		} else {
+			$this->load->view('admin/feedback_list', $data);
+		}
 	}
 
 	public function delete($id = null)

@@ -10,9 +10,9 @@
 		<?php $this->load->view('admin/_partials/side_nav.php') ?>
 
 		<div class="content">
-			<h1>Settings</h1>
-		
-			<p>Comming Soon..</p>
+			<h1>Feedback is Empty</h1>
+
+			<p>No Feedback to show</p>
 
 			<?php $this->load->view('admin/_partials/footer.php') ?>
 		</div>
