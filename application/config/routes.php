@@ -57,3 +57,5 @@ $route['about'] = 'page/about';
 $route['contact'] = 'page/contact';
 
 $route['article/(:any)'] = 'article/show/$1';
+
+$route['admin'] = 'admin/dashboard';
