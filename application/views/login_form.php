@@ -9,31 +9,35 @@
 	<?php $this->load->view('_partials/navbar.php'); ?>
 
 	<div class="container">
-		<h1>Contact Us</h1>
-		<p>Hubungi kami melalui form berikut</p>
+		<h1>Login</h1>
+		<p>Masuk ke Dashboard</p>
+
+		<?php if($this->session->flashdata('message_login_error')): ?>
+			<div class="invalid-feedback">
+					<?= $this->session->flashdata('message_login_error') ?>
+			</div>
+		<?php endif ?>
+
 		<form action="" method="post" style="max-width: 600px;">
 			<div>
-				<label for="name">Name*</label>
-				<input type="text" name="name" class="<?= form_error('name') ? 'invalid' : '' ?>"
-				required maxlength="32" placeholder="your name" value="<?= set_value('name') ?>" />
-				<div class="invalid-feedback"><?= form_error('name') ?></div>
+				<label for="name">Email/Username*</label>
+				<input type="text" name="username" class="<?= form_error('username') ? 'invalid' : '' ?>"
+					placeholder="Your username or email" value="<?= set_value('username') ?>" required />
+				<div class="invalid-feedback">
+					<?= form_error('username') ?>
+				</div>
 			</div>
 			<div>
-				<label for="email">Email*</label>
-				<input type="email" name="email" class="<?= form_error('email') ? 'invalid' : '' ?>"
-				required maxlength="32" placeholder="your email address" value="<?= set_value('email') ?>" />
-				<div class="invalid-feedback"><?= form_error('email') ?></div>
-			</div>
-			<div>
-				<label for="messaage">Message*</label><br>
-				<textarea name="message" cols="30" class="<?= form_error('message') ? 'invalid' : '' ?>" 
-				required maxlength="32" rows="5" placeholder="write your message"><?= set_value('message') ?></textarea>
-				<div class="invalid-feedback"><?= form_error('message') ?></div>
+				<label for="password">Password*</label>
+				<input type="password" name="password" class="<?= form_error('password') ? 'invalid' : '' ?>"
+					placeholder="Enter your password" value="<?= set_value('password') ?>" required />
+				<div class="invalid-feedback">
+					<?= form_error('password') ?>
+				</div>
 			</div>
 
-			<div style="display: flex; gap: 1rem">
-				<input type="submit" class="button button-primary" value="Kirim">
-				<input type="reset" class="button" value="Reset">
+			<div>
+				<input type="submit" class="button button-primary" value="Login">
 			</div>
 		</form>
 	</div>
@@ -43,7 +47,7 @@
 </html>
 
 <style>
-	/* Form */
+/* Form */
 form {
 	box-sizing: border-box;
 	display:flex;
@@ -119,10 +123,10 @@ input:focus, textarea:focus {
 	font-size: 0.7rem;
 }
 
+
 /* utilities */
 .container {
 	max-width: 1024px;
 	margin: 0 auto;
 	padding: 0 2em;
-}
-</style>
+}</style>

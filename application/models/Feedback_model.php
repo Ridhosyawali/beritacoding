@@ -31,4 +31,23 @@ class Feedback_model extends CI_Model
 	public function count(){
 		return $this->db->count_all($this->_table);
 	}
+	public function rules()
+	{
+		return [
+			[
+				'field' => 'name', 
+				'label' => 'Name', 
+				'rules' => 'required|max_length[32]'
+			],
+			[
+				'field' => 'email', 
+				'label' => 'Email', 
+				'rules' => 'required|valid_email|max_length[32]'
+			],
+			[
+				'field' => 'message', 
+				'label' => 'Message', 
+				'rules' => 'required'],
+		];
+	}
 }
