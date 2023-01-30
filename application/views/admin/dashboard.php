@@ -21,10 +21,17 @@
         </div>
         <div class="card text-center" style="width: 100px;">
           <h2>
+           <?= $books_count ?>
+          </h2>
+          <p><a href="<?= site_url('admin/books') ?>">Books</a></p>
+        </div>
+        <div class="card text-center" style="width: 100px;">
+          <h2>
             <?= $feedback_count ?>
           </h2>
           <p><a href="<?= site_url('admin/feedback') ?>">Feedback</a></p>
         </div>
+        
       </div>
 
       <?php $this->load->view('admin/_partials/footer.php') ?>

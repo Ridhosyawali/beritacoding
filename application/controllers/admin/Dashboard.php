@@ -13,12 +13,14 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$this->load->model('article_model');
+		$this->load->model('books_model');
 		$this->load->model('feedback_model');
 		
 		$data = [
 			"current_user" => $this->auth_model->current_user(),
 			"article_count" => $this->article_model->count(),
-			"feedback_count" => $this->feedback_model->count()
+			"feedback_count" => $this->feedback_model->count(),
+			"books_count"	=> $this->books_model->count(),
 		];
 
 		$this->load->view('admin/dashboard.php', $data);
